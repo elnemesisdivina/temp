@@ -9,7 +9,7 @@
 
 clear
 
-DEMO_PROMPT="ubuntu@cli-vm-corp-local:~/scripts$ "
+DEMO_PROMPT="ubuntu@cli-vm-corp-local:hipsterstore$ "
 
 #login in native namespace, just creck the correct namespace either  --tanzu-kubernetes-cluster-namespace tkg or tkg-<ip_addrss of cluster>
 
@@ -21,7 +21,7 @@ pe "kubectl vsphere login --server k8s.corp.local -u administrator@vsphere.local
 
 #change to context aka TKG namespace
 
-pe "kubectl configure use-context tkg-cluster"
+pe "kubectl config use-context tkg-cluster"
 
 #describe the sit
 
@@ -40,20 +40,21 @@ pe "kubectl get pods"
 "kubectl apply -f allow-runasnonroot-clusterrole.yaml" 
 
 #create the app from github repo of google to run online boutique app
-pe "git clone https://github.com/GoogleCloudPlatform/microservices-demo.git demo-app"
+#pe "git clone https://github.com/GoogleCloudPlatform/microservices-demo.git demo-app"
 
 #move the app 
 
-pe "cd /demo-app/release"
+#pe "cd /demo-app/release"
 
 #check the app to be deployed manifest
 
-pe "cat kubernetes-manifests.yaml"
+#pe "cat kubernetes-manifests.yaml"
 
 
 #apply the manifesto
 
-pe "kubectl apply -f kubernetes-manifests.yaml"
+#pe "kubectl apply -f kubernetes-manifests.yaml"
+pe "kubectl apply -f https://raw.githubusercontent.com/GoogleCloudPlatform/microservices-demo/master/release/kubernetes-manifests.yaml"
 
 #check everything is being created
 
