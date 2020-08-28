@@ -1,0 +1,13 @@
+guestcluster login
+kubectl vsphere login --server=k8s.corp.local -u administrator@corp.local --tanzu-kubernetes-cluster-name tkg-cluster --tanzu-kubernetes-cluster-namespace tkg
+
+check powered tkg
+
+kubectl vsphere login --server=k8s.corp.local -u administrator@vsphere.local --insecure-skip-tls-verify
+kubectl config get-contexts
+kubectl config use-context tkg
+kubectl describe ns tkg
+kubectl get tanzukubernetescluster,virtualmachines
+kubectl describe tanzukubernetescluster
+
+kubectl create clusterrolebinding psp:authenticated --clusterrole=psp:vmware-system-restricted --group=system:authenticated
