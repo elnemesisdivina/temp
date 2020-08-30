@@ -1,0 +1,40 @@
+Login in the supervisor cluster API server aka k8s.corp.local*************
+that be:
+kubectl vsphere login --server=k8s.corp.local -u administrator@corp.local --insecure-skip-tls-verify
+kubectl config get-contexts
+kubectl use-context svc
+kubectl get pods
+run container nginx natively
+then add the lb service anc heck access from native cluster
+check in web browser or make a curl
+then newtok policy but explore NSXT
+kubectl get pods -o wide
+show yaml of create of guest lcuster for my case is going to be tkg
+kubectl config use-context tkg-10.40.14.65
+kubectl describe tanzumanagedcluster tkg
+Login in the Guset cluter API endpoint******************
+kubectl vsphere login --server=k8s.corp.local -u administrator@corp.local --insecure-skip-tls-verify --tanzu-kubernetes-cluster-name tkg-cluster --tanzu-kubernetes-cluster-namespace tkg
+
+kubectl config use-context tkg
+kubectl get pods
+kubectl apply -f https://raw.githubusercontent.com/GoogleCloudPlatform/microservices-demo/master/release/kubernetes-manifests.yaml
+kubectl get pods --watch
+kubectl get services
+kubectl get pods -o wide
+
+
+
+
+guestcluster login
+kubectl vsphere login --server=k8s.corp.local -u administrator@corp.local --insecure-skip-tls-verify --tanzu-kubernetes-cluster-name tkg-cluster --tanzu-kubernetes-cluster-namespace tkg
+
+check powered tkg
+
+kubectl vsphere login --server=k8s.corp.local -u administrator@vsphere.local --insecure-skip-tls-verify
+kubectl config get-contexts
+kubectl config use-context tkg
+kubectl describe ns tkg
+kubectl get tanzukubernetescluster,virtualmachines
+kubectl describe tanzukubernetescluster
+
+    
