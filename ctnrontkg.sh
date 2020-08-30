@@ -38,6 +38,7 @@ pe "kubectl get pods"
 #apply the run as nonroot policy
 
 "kubectl apply -f allow-runasnonroot-clusterrole.yaml" 
+#this allow run as root just works in the GC NOT in SC
 
 #create the app from github repo of google to run online boutique app
 #pe "git clone https://github.com/GoogleCloudPlatform/microservices-demo.git demo-app"
@@ -54,7 +55,7 @@ pe "kubectl get pods"
 #apply the manifesto
 
 #pe "kubectl apply -f kubernetes-manifests.yaml"
-pe "kubectl apply -f https://raw.githubusercontent.com/GoogleCloudPlatform/microservices-demo/master/release/kubernetes-manifests.yaml"
+pe "kubectl apply -f https://raw.githubusercontent.com/elnemesisdivina/microservices-demo/master/release/kubernetes-manifests.yaml"
 
 #check everything is being created
 
